@@ -1,0 +1,12 @@
+*
+!app.py
+!requirements-lock.txt
+!zoderise/
+!zoderise/*.py
+!assets/
+!assets/*.css
+!assets/*.webp
+!.streamlit/
+!.streamlit/config.toml
+!configure_owner.py
+!preflight.py

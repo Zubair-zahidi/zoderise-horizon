@@ -1,0 +1,24 @@
+[server]
+headless = true
+address = "127.0.0.1"
+port = 8501
+enableCORS = true
+enableXsrfProtection = true
+enableStaticServing = true
+maxUploadSize = 25
+fileWatcherType = "auto"
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "dark"
+primaryColor = "#626FC6"
+backgroundColor = "#0B1020"
+secondaryBackgroundColor = "#152136"
+textColor = "#E9EDF5"
+font = "sans-serif"
+baseFontSize = 16
+baseRadius = "0.6rem"
+borderColor = "#34435B"
+showWidgetBorder = true

@@ -1,0 +1,37 @@
+ZODERISE HORIZON — DESKTOP APPLICATION
+
+For users: send only release\Zoderise-Horizon-Hub-8.2-Windows-x64.exe.
+Double-click it to open the full workspace in its own Windows application window.
+No Python, npm, Node.js, or project folder is needed by the recipient.
+The first launch may take a moment while the bundled files unpack.
+Choose Create account on first use. The first local account is administrator.
+Closing the application also stops its private local server.
+
+The application uses Microsoft Edge WebView2 Runtime, included on most Windows
+10/11 PCs. If missing, install it from Microsoft's official WebView2 download
+page. The EXE is unsigned; Windows may show an unknown-publisher notice.
+
+AI: install and open Ollama, then choose AI → Set up models in the app menu.
+Models are separate large downloads. AI → Get Ollama opens its official page.
+Saved work and non-AI tools can be used without the AI models.
+Optional image OCR requires Tesseract and the corresponding language packs.
+
+Saved accounts, chats, files and logs:
+%LOCALAPPDATA%\ZoderiseHorizon
+Workspace → Saved data and logs opens this folder.
+Updating/moving the EXE does not remove saved data.
+This desktop edition can run locally on the recipient's computer or connect to
+a Zoderise Hub. After creating a local administrator, the host laptop can use
+Workspace -> Enable Hub on this computer. Admin -> Hub access shows its QR
+code and address. Clients choose Workspace -> Connect to Hub. Only the host
+needs Ollama; each client needs its own approved account. Use trusted private
+Wi-Fi or a VPN/TLS proxy. The LAN address uses plain HTTP without TLS.
+
+FOR DEVELOPERS
+All editable source remains in the project folder.
+Run setup_windows.bat and run_server.bat for the normal Streamlit version.
+Run python desktop_launcher.py to develop the desktop window.
+Desktop dependencies: requirements-desktop.txt.
+Build: python -m PyInstaller --noconfirm ZoderiseDesktop.spec, then copy the output from dist to release.
+Source archive: Zoderise_Horizon_Customizable.zip (does not include the large EXE).
+Use the Hub-8.2 executable for the full application window and Hub hosting.

@@ -1,0 +1,17 @@
+ZODERISE HORIZON 8.1 - FULL PROJECT
+
+1. Extract this ZIP.
+2. Run setup_windows.bat to install Python dependencies.
+3. Run start_ollama_and_zoderise.bat.
+4. Open http://127.0.0.1:8501.
+
+Includes the complete updated source, artwork, configuration, Windows launchers,
+documentation, tests, local database snapshot, and uploaded files.
+Your administrator account is preserved in the database snapshot.
+
+Python virtual environments, Ollama application/model binaries, old backups,
+caches, and runtime logs are excluded. The launcher reuses your installed models.
+On a different PC, update ZODERISE_OLLAMA_MODELS in .env to its model directory.
+Existing saved attachment paths refer to their original location on this computer.
+
+This is your personal project archive and includes local account/data state.
