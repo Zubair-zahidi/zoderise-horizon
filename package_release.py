@@ -12,6 +12,7 @@ def main():
     for folder, extensions in [("zoderise", {".py"}), ("tests", {".py"}), ("assets", {".png", ".jpg", ".webp", ".css", ".md", ".ico", ".svg"}), ("static", {".json"})]:
         files.extend(p for p in (ROOT / folder).rglob("*") if p.is_file() and p.suffix.lower() in extensions and "__pycache__" not in p.parts)
     files.append(ROOT / ".streamlit" / "config.toml")
+    files.extend(p for p in (ROOT / "docs").rglob("*") if p.is_file() and p.suffix.lower() in {".py", ".gif", ".png", ".jpg", ".md"} and "__pycache__" not in p.parts)
     with ZipFile(OUTPUT, "w", ZIP_DEFLATED, compresslevel=9) as archive:
         for path in sorted(set(files)):
             archive.write(path, "Zoderise_Horizon/" + path.relative_to(ROOT).as_posix())
