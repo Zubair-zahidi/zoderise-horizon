@@ -22,6 +22,11 @@ class HubAddressTests(unittest.TestCase):
         self.assertIsNotNone(image)
         self.assertTrue(image.startswith(b"\x89PNG\r\n\x1a\n"))
 
+    def test_invalid_ports_are_rejected(self):
+        for port in ('0', '65536', '-1', 'invalid'):
+            with self.subTest(port=port), self.assertRaises(ValueError):
+                normalize_hub_url(f'https://example.com:{port}')
+
 
 if __name__ == "__main__":
     unittest.main()

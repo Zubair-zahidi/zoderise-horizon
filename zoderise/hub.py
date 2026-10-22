@@ -39,6 +39,9 @@ def normalize_hub_url(value: str) -> str:
     parsed = urlparse(raw)
     if parsed.scheme not in {"http", "https"} or not parsed.hostname or parsed.username or parsed.password:
         raise ValueError("Enter a complete http:// or https:// Zoderise Hub address.")
+    # Accessing port validates malformed and out-of-range values in urllib.
+    if parsed.port is not None and parsed.port < 1:
+        raise ValueError("Hub ports must be between 1 and 65535.")
     if parsed.path not in {"", "/"} or parsed.query or parsed.fragment:
         raise ValueError("Enter only the Hub address, without a page, query, or fragment.")
     if parsed.scheme == "http":

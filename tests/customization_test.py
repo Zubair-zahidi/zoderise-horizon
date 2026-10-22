@@ -53,7 +53,10 @@ class Customization(unittest.TestCase):
             with patch.object(ai.requests, 'post', return_value=response):
                 with self.assertRaises(RuntimeError):
                     list(ai.chat_stream('test', [{'role': 'user', 'content': 'hi'}]))
-            self.assertFalse(ai._INFERENCE_LOCK.locked())
+            self.assertEqual(ai.inference_queue.snapshot(), {'busy': False, 'waiting': 0})
+            # A subsequent request must actually acquire the gate again.
+            with ai.inference_queue.slot():
+                self.assertTrue(ai.inference_queue.snapshot()['busy'])
 
     def test_arabic_language(self):
         self.assertEqual(ai.detect_response_language('مرحبا', 'English'), 'Arabic')

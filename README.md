@@ -1,6 +1,6 @@
 # Zoderise Horizon
 
-**One private workspace for learning, research, and practical work.** Zoderise Horizon brings a local AI assistant, document research, study tools, and a customizable interface into a Windows app and browser experience. A host laptop can serve approved people on the same trusted network.
+**Local AI, document research, and study tools in one private workspace.** Zoderise Horizon brings a local AI assistant, document research, study tools, and a customizable interface into a Windows app and browser experience. A host laptop can serve approved people on the same trusted network.
 
 Created by **Zubair Zahidi** for **Kardan Private School**. Zubair customized the application workflows, prompts, and model parameters around existing Ollama models; this project does not claim that he trained or fine-tuned the underlying models.
 
@@ -94,3 +94,15 @@ For product decisions and deployment details, read [design and product plan](DES
 ---
 
 **Zoderise Horizon** · Created by Zubair Zahidi · Built for Kardan Private School
+
+## Portable development checks
+
+Run `python tests/run_tests.py` with the installed virtual-environment interpreter to execute all seven portable suites in separate processes. This isolates Streamlit component registration and temporary configuration between suites. Windows executable checks are separate. UI generation tests mock inference; live text and vision models must pass `preflight.py` independently.
+
+## Cloud review preview
+
+![Cloud capture of zoderise-horizon](docs/cloud-review/desktop-2026-10-22.png)
+
+Captured from the running project on 22 October 2026. The real sign-in screen is shown. Live inference was not exercised because Ollama models are not installed.
+
+[Mobile capture](docs/cloud-review/mobile-2026-10-22.png)
